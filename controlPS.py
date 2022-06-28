@@ -21,7 +21,7 @@ class SiglentPS_SPD3303XE(BaseScan):
         sleep(0.1)
         self.inst.write('OUTP CH3,ON')
         sleep(0.1)
-	return None
+        return None
     def setAllChannelOff(self):
         self.inst.write('OUTP CH1,OFF')
         sleep(0.1)
@@ -29,21 +29,21 @@ class SiglentPS_SPD3303XE(BaseScan):
         sleep(0.1)
         self.inst.write('OUTP CH3,OFF')
         sleep(0.1)
-	return None
+        return None
     def setCh1Volt(self,tgtvoltage):
         self.inst.write('CH1:VOLT ' + str(tgtvoltage))
         sleep(0.1)
-	return None
+        return None
     def setCh2Volt(self,tgtvoltage):
         self.inst.write('CH2:VOLT ' + str(tgtvoltage))
         sleep(0.1)
-	return None
+        return None
     def setCh1Curr(self,tgtcurrent):
         self.inst.write('CH1:CURR ' + str(tgtcurrent))
         sleep(0.1)
-	return None
+        return None
     def setCh2Curr(self,tgtcurrent):
-        self.inst.write('CH2:CURR ' + str(tgtcurrent) 
+        self.inst.write('CH2:CURR ' + str(tgtcurrent)) 
         sleep(0.1)
         return None
 
