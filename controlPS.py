@@ -15,8 +15,8 @@ class BaseScan:
         return None
 class SiglentPS_SPD3303XE(BaseScan):
     def __init__(self):
-        BaseScan.__init__()
-        self.starline_char = '\n'
+        BaseScan.__init__(self)
+        self.startline_char = '\n'
         self.endline_char = '\n'
 
     def setAllChannelOn(self):
