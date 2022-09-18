@@ -91,3 +91,7 @@ class Siglent_SDG1032X(BaseScan):
     def setC1PulseTimeNano(self,pulsetime):
         #Only works when wavetype is "pulse"
         self.inst.write(f"C1:BSVW WIDTH,{pulsetime*(10**-9)}")
+    def setC1_On(self):
+        self.inst.write("C1:OUTP ON")
+    def setC2_Off(self):
+        self.inst.write("C1:OUTP OFF")
