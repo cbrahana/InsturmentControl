@@ -77,3 +77,14 @@ class Keithly_2410(BaseScan):
         self.inst.write(':FORM:ELEM VOLT')
         asdf = self.inst.query(':MEAS:VOLT?')
         return float(asdf)
+
+class Siglent_SGD1032X(BaseScan):
+    def __init__(self,preselect_resource=""):
+        BaseScan.__init__(self)
+        self.startline_char = "\n"
+        self.endline_char = "\n"
+        self.select_resources(preselect_resource=preselect_resource)
+    def setC1Frequency(self,freq):
+        self.inst.write(f"C1:BSVW FRQ,{freq}")
+    def setC1DutyCycle(self,dc):
+        self.inst.write(f"C1:BSVW DUTY,{dc}")
