@@ -78,7 +78,7 @@ class Keithly_2410(BaseScan):
         asdf = self.inst.query(':MEAS:VOLT?')
         return float(asdf)
 
-class Siglent_SGD1032X(BaseScan):
+class Siglent_SDG1032X(BaseScan):
     def __init__(self,preselect_resource=""):
         BaseScan.__init__(self)
         self.startline_char = "\n"
@@ -88,3 +88,6 @@ class Siglent_SGD1032X(BaseScan):
         self.inst.write(f"C1:BSVW FRQ,{freq}")
     def setC1DutyCycle(self,dc):
         self.inst.write(f"C1:BSVW DUTY,{dc}")
+    def setC1PulseTimeNano(self,pulsetime):
+        #Only works when wavetype is "pulse"
+        self.inst.write(f"C1:BSVW WIDTH,{pulsetime*(10**-9)}")
